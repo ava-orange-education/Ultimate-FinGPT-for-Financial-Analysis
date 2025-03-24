@@ -1,0 +1,12 @@
+pandas
+torch
+numpy
+scikit-learn
+matplotlib
+requests
+dotenv
+transformers
+peft
+loguru
+bitsandbytes
+yfinance
