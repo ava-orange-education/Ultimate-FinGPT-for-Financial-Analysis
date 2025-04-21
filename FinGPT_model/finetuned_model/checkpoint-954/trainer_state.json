@@ -1,0 +1,48 @@
+{
+  "best_metric": 0.003883643075823784,
+  "best_model_checkpoint": "/content/drive/MyDrive/Colab Notebooks/AI4Finance/FinGPT/FinGPT: Training with LoRA and Llama-3/finetuned_model/checkpoint-500",
+  "epoch": 1.9976421273251246,
+  "eval_steps": 500,
+  "global_step": 954,
+  "is_hyper_param_search": false,
+  "is_local_process_zero": true,
+  "is_world_process_zero": true,
+  "log_history": [
+    {
+      "epoch": 1.0461095100864553,
+      "grad_norm": 0.4617641270160675,
+      "learning_rate": 5e-05,
+      "loss": 0.0042,
+      "step": 500
+    },
+    {
+      "epoch": 1.0461095100864553,
+      "eval_loss": 0.003883643075823784,
+      "eval_runtime": 50.6504,
+      "eval_samples_per_second": 75.379,
+      "eval_steps_per_second": 9.437,
+      "step": 500
+    }
+  ],
+  "logging_steps": 500,
+  "max_steps": 954,
+  "num_input_tokens_seen": 0,
+  "num_train_epochs": 2,
+  "save_steps": 500,
+  "stateful_callbacks": {
+    "TrainerControl": {
+      "args": {
+        "should_epoch_stop": false,
+        "should_evaluate": false,
+        "should_log": false,
+        "should_save": true,
+        "should_training_stop": true
+      },
+      "attributes": {}
+    }
+  },
+  "total_flos": 9.280839624327168e+16,
+  "train_batch_size": 4,
+  "trial_name": null,
+  "trial_params": null
+}
