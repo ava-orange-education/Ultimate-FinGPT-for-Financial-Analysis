@@ -50,8 +50,8 @@ stock_prices_df = get_stock_prices(STOCK_SYMBOLS, YAHOO_FINANCE_TIMEFRAME)
 if not stock_prices_df.empty:
     save_data(stock_prices_df, "stock_prices.csv")
 
-# --- 2. Company Earnings Reports & Financial Statements (Illustrative - Requires Specific APIs or Web Scraping) ---
-# Note: Directly fetching and parsing these requires more complex logic and potentially specific APIs
+#  Company Earnings Reports & Financial Statements (orinally the Requires Specific APIs or Web Scraping) ---
+# Directly fetching and parsing these requires more complex logic and potentially specific APIs
 # or web scraping of SEC filings or financial data providers. This is a placeholder.
 
 def get_financial_statements(symbols):
