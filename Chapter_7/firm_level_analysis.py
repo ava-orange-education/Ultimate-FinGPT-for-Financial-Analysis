@@ -64,9 +64,12 @@ def get_financial_statements(symbols):
             "balance_sheet": pd.DataFrame(),
             "income_statement": pd.DataFrame(),
             "cash_flow_statement": pd.DataFrame()
+            
         }
+    
     return financial_data
 
 financial_data = get_financial_statements(STOCK_SYMBOLS)
-# In a real implementation, you would save these DataFrames
+
+
 

@@ -1,6 +1,6 @@
 import random
-import pandas as pd
-import numpy as np
+import pandas as pd # type: ignore
+import numpy as np # type: ignore
 from datetime import datetime, timedelta
 
 # Seed for reproducibility
@@ -86,8 +86,8 @@ events_df = pd.DataFrame(events)
 fred_df = pd.DataFrame(fred_data)
 
 # Save separate files for clarity
-data_df.to_csv('synthetic_stock_data.csv', index=False)
-events_df.to_csv('synthetic_news_events.csv', index=False)
-fred_df.to_csv('synthetic_fred_data.csv', index=False)
+data_df.to_csv('Data/synthetic_stock_data.csv', index=False)
+events_df.to_csv('Data/synthetic_news_events.csv', index=False)
+fred_df.to_csv('Data/synthetic_fred_data.csv', index=False)
 
 print("Synthetic company and FRED data generated.")
