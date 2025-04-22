@@ -15,6 +15,7 @@ texts = {
 
 # Generate  samples
 samples = []
+n = 20
 for i in range(n): # Replace n with number of samples
     company = random.choice(companies)
     sentiment = random.choice(sentiments)
