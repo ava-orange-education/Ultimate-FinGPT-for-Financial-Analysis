@@ -22,6 +22,8 @@ price_volume_data = pd.DataFrame({
     "price_usd": np.round(np.random.uniform(10, 50000, 100), 2),
     "volume_usd": np.round(np.random.uniform(100000, 50000000, 100), 2)
 })
+price_volume_data.to_csv('Data/price_volume_data.csv')
+
 
 #  Blockchain Transactions
 wallet_types = ["whale", "retail", "exchange"]
@@ -31,6 +33,8 @@ blockchain_data = pd.DataFrame({
     "wallet_type": random.choices(wallet_types, k=100),
     "tx_volume_usd": np.round(np.random.uniform(1000, 10000000, 100), 2)
 })
+blockchain_data.to_csv('Data/blockchain_data.csv')
+
 
 #  Financial News & Regulatory Alerts
 news_sources = ["Bloomberg", "CoinDesk", "Reuters", "CryptoSlate"]
@@ -42,6 +46,8 @@ news_data = pd.DataFrame({
     "event_type": random.choices(event_types, k=100),
     "sentiment_score": np.round(np.random.uniform(-1, 1, 100), 2)
 })
+news_data.to_csv('Data/news_data.csv')
+
 
 #  Social Media Sentiment
 platforms = ["Twitter", "Reddit", "CryptoTalk"]
@@ -53,6 +59,8 @@ social_data = pd.DataFrame({
     "sentiment_score": np.round(np.random.uniform(-1, 1, 100), 2),
     "engagement": np.random.randint(1, 10000, 100)
 })
+social_data.to_csv('Data/social_data.csv')
+
 
 #  Project Announcements & Tech Updates
 categories = ["Upgrade", "Security", "Funding", "Launch"]
@@ -64,4 +72,4 @@ announcements_data = pd.DataFrame({
     "source_url": ["https://example.com/update" + str(i) for i in range(100)]
 })
 
-import ace_tools as tools; tools.display_dataframe_to_user(name="Synthetic Data Samples", dataframe=price_volume_data.head())
+announcements_data.to_csv('Data/announcements_data.csv')
