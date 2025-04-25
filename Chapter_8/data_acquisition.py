@@ -73,3 +73,61 @@ announcements_data = pd.DataFrame({
 })
 
 announcements_data.to_csv('Data/announcements_data.csv')
+
+
+## Get synthetic dataset for sentiment labelled crypto statemments
+import random
+
+def generate_sentiment_labeled_crypto_data(num_samples=50):
+    
+    crypto_names = ["Bitcoin", "Ethereum", "Solana", "Cardano", "Dogecoin", "Shiba Inu", "BNB", "XRP", "Avalanche", "Polkadot"]
+    positive_keywords = ["surge", "rally", "bullish", "pump", "gains", "increase", "growth", "promising", "strong", "upward trend", "to the moon", "breakout", "adoption", "integration"]
+    negative_keywords = ["crash", "dump", "bearish", "plunge", "losses", "decrease", "drop", "risky", "uncertainty", "downward pressure", "correction", "sell-off", "regulation fears", "scam"]
+    neutral_keywords = ["sideways", "stable", "flat", "consolidating", "trading", "market watch", "current price", "analysis", "report", "updates", "potential", "considering", "monitoring"]
+
+    statements = []
+    for _ in range(num_samples):
+        crypto = random.choice(crypto_names)
+        sentiment_choice = random.choices(['positive', 'neutral', 'negative'], weights=[0.35, 0.3, 0.35], k=1)[0]  # Slightly more weight to extremes
+
+        if sentiment_choice == 'positive':
+            keyword = random.choice(positive_keywords)
+            statement = f"{crypto} is experiencing a significant {keyword}."
+            if random.random() < 0.4:
+                statement += f" Analysts predict further {random.choice(['gains', 'growth'])}."
+            elif random.random() < 0.3:
+                statement += f" The market sentiment around {crypto} is very {random.choice(['optimistic', 'positive'])}."
+        elif sentiment_choice == 'negative':
+            keyword = random.choice(negative_keywords)
+            statement = f"There's a major {keyword} in the price of {crypto}."
+            if random.random() < 0.4:
+                statement += f" Investors are expressing {random.choice(['fear', 'concern'])} about the future."
+            elif random.random() < 0.3:
+                statement += f" Regulatory news is putting {random.choice(['strong', 'significant'])} {random.choice(['downward pressure', 'uncertainty'])} on {crypto}."
+        else:
+            keyword = random.choice(neutral_keywords)
+            statement = f"The price of {crypto} is currently {keyword}."
+            if random.random() < 0.4:
+                statement += f" Traders are waiting for the next market catalyst."
+            elif random.random() < 0.3:
+                statement += f" Market analysis shows {crypto} in a period of {random.choice(['consolidation', 'stability'])}."
+
+        statements.append({'text': statement, 'label': sentiment_choice})
+
+    return statements
+
+# Generate the dataset
+crypto_sentiment_data = generate_sentiment_labeled_crypto_data(50)
+
+# save as a dataset along with the instruction
+# Convert to DataFrame
+data = pd.DataFrame(crypto_sentiment_data)
+
+
+data['instruction'] = 'What is the sentiment of this tweet? Please choose an answer from {negative/neutral/positive}.'
+data.columns = ['input','output','instruction']
+print(data.head())
+
+# save data
+
+data.to_csv('Data/crypto_sentiment_data.csv', index= False)
